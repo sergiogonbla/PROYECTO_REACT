@@ -1,69 +1,11 @@
-import React, {useState} from "react";
 
-function MiLista(){
-    const [incidencias, setIncidencias] = useState(
-        [
-        {
-        id_incidencias: 1,
-        id_usuario: "sergiogb85",
-        titulo: "Proyecto averia",
+function MiLista(props){
 
-        descripcion: "Proyecto averiado en el aula 2",
-        categoria: "Hardware",
-        nivel_urgencia: "Media",
-        fecha_registro: "2025-10-20",
-        estado: "Abierto",
-        ubicacion: "B205"
-
-    },
-    {
-        id_incidencias: 2,
-        id_usuario: "sergiogb85",
-        titulo: "Proyecto averia",
-
-        descripcion: "Ordenador no enciende",
-        categoria: "Hardware",
-        nivel_urgencia: "Baja",
-        fecha_registro: "2025-10-20",
-        estado: "Abierto",
-        ubicacion: "B205"
-
-    },
-    {
-        id_incidencias: 3,
-        id_usuario: "sergiogb85",
-        titulo: "Proyecto averia",
-
-        descripcion: "Impresora sin conexion",
-        categoria: "Hardware",
-        nivel_urgencia: "Media",
-        fecha_registro: "2025-10-20",
-        estado: "Abierto",
-        ubicacion: "B205"
-
-    },
-    {
-        id_incidencias: 4,
-        id_usuario: "sergiogb85",
-        titulo: "Proyecto averia",
-
-        descripcion: "WIFI no disponible",
-        categoria: "Hardware",
-        nivel_urgencia: "Alta",
-        fecha_registro: "2025-10-20",
-        estado: "Abierto",
-        ubicacion: "B205"
-    },
-
-
-    ]);
-
-    
     return(
         <div ClassName='lista'>
             <ul>
                 {
-                    incidencias.map((i)=> (
+                    props.incidencias.map((i)=> (
                         <li>
                             
                             <strong>ID incidencia:</strong> {i.id_incidencias}<br></br>
