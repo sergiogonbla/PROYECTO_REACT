@@ -8,7 +8,7 @@ import Form from './Form.js';
 
 function App() {
 
-    // Estado inicial CORRECTO: un ARRAY con varias incidencias
+    
     const [incidencias, setIncidencias] = useState([
         {
             id_incidencias: 1,
@@ -45,7 +45,7 @@ function App() {
         }
     ]);
 
-    // Función funcional correcta
+
     const agregarincidencia = (
         titulo_nuevo,
         usuario_nuevo,
@@ -75,7 +75,7 @@ function App() {
 
         console.log("Nueva incidencia", nueva_incidencia);
 
-        // Actualización correcta del estado en un componente funcional
+
         setIncidencias([...incidencias, nueva_incidencia]);
     };
 
