@@ -18,54 +18,86 @@ function Form(props) {
     };
 
     return (
-        <div>
-            <h2>Registrar incidencias</h2>
+        <div className="card p-4 bg-dark text-light">
+            <h2 className="card-title mb-4 text-center">Registrar incidencia</h2>
 
             <form onSubmit={envioFormulario}>
 
-                <div className="elemento-form">
-                    <label>Titulo:</label>
-                    <input type="text" name="titulo" placeholder="Introduce el titulo" required />
+                <div>
+                    <label className="mb-3 form-label">Título incidencia</label>
+                    <input 
+                        className="mb-3 form-control" 
+                        type="text" 
+                        name="titulo" 
+                        placeholder="Introduce el título" 
+                        required
+                    /><br/><br/>
                 </div>
 
-                <div className="elemento-form">
-                    <label>Usuario:</label>
-                    <input type="text" name="usuario" placeholder="Introduce el usuario" required />
+                <div>
+                    <label className="mb-3 form-label">Usuario</label>
+                    <input 
+                        className="mb-3 form-control" 
+                        type="text" 
+                        name="usuario" 
+                        required
+                    /><br/><br/>
                 </div>
 
-                <div className="elemento-form">
-                    <label>Descripcion:</label>
-                    <input type="text" name="descripcion" placeholder="Introduce la descripcion" required />
+                <div>
+                    <label className="mb-3 form-label">Descripción</label>
+                    <textarea 
+                        className="mb-3 form-control"
+                        name="descripcion"
+                        placeholder="Describe la incidencia"
+                        required
+                    ></textarea><br/><br/>
                 </div>
 
-                <div className="elemento-form">
-                    <label>Categoria:</label>
-                    <select name="categoria" required>
+                <div>
+                    <label className="mb-3 form-label">Categoría</label>
+                    <select 
+                        className="mb-3 form-control" 
+                        name="categoria" 
+                        required
+                    >
                         <option value="">Seleccionar...</option>
-                        <option>Hardware</option>
-                        <option>Software</option>
-                        <option>Red y conectividad</option>
-                        <option>Usuarios y accesos</option>
-                        <option>Infraestructuras</option>
-                    </select>
+                        <option value="Hardware">Hardware</option>
+                        <option value="Software">Software</option>
+                        <option value="Red">Red</option>
+                    </select><br/><br/>
                 </div>
 
-                <div className="elemento-form">
-                    <label>Nivel de Urgencia:</label>
-                    <select name="nivel" required>
+                <div>
+                    <label className="mb-3 form-label">Nivel de urgencia</label>
+                    <select 
+                        className="mb-3 form-control" 
+                        name="nivel" 
+                        required
+                    >
                         <option value="">Seleccionar...</option>
-                        <option>Alta</option>
-                        <option>Media</option>
-                        <option>Baja</option>
-                    </select>
+                        <option value="Alta">Alta</option>
+                        <option value="Media">Media</option>
+                        <option value="Baja">Baja</option>
+                    </select><br/><br/>
                 </div>
 
-                <div className="elemento-form">
-                    <label>Ubicacion:</label>
-                    <input type="text" name="ubicacion" placeholder="Ej: B205" required />
+                <div>
+                    <label className="mb-3 form-label">Ubicación</label>
+                    <input 
+                        className="mb-3 form-control" 
+                        type="text" 
+                        name="ubicacion" 
+                        placeholder="Introduce el aula o lugar"
+                        required
+                    /><br/><br/>
                 </div>
 
-                <button type="submit" className="elemento-form-button">Registrar</button>
+                <div className="text-center">
+                    <button className="btn btn-success" type="submit">Registrar</button>
+                </div>
+
+
             </form>
         </div>
     );

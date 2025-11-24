@@ -1,5 +1,5 @@
 
-import './App.css';
+import fondo from '../imagenes/fondo.jpg'; 
 import MiLista from '../lista/MiLista';
 import Header from '../header/Header.js';
 import Footer from '../footer/Footer.js';
@@ -8,7 +8,7 @@ import Form from './Form.js';
 
 function App() {
 
-    
+
     const [incidencias, setIncidencias] = useState([
         {
             id_incidencias: 1,
@@ -68,35 +68,31 @@ function App() {
             descripcion: descripcion_nuevo,
             categoria: categoria_nuevo,
             nivel_urgencia: nivel_urgencia_nuevo,
+            ubicacion: ubicacion_nuevo,
             fecha_registro: fecha_formateada,
-            estado: "Abierta",
-            ubicacion: ubicacion_nuevo
+            estado: "Abierto"
         };
 
-        console.log("Nueva incidencia", nueva_incidencia);
+
 
 
         setIncidencias([...incidencias, nueva_incidencia]);
     };
 
     return (
-        <>
+            <div className='card' style={{ backgroundImage: `url(${fondo})`, backgroundSize: "cover", backgroundRepeat: "no-repeat"}}>
             <Header />
-            <h2>Mi aplicacion</h2>
-
-            <div className="App">
-                <main>
-                    <p>Este es mi contenido de la app</p>
+            <div className="container d-flex">
+                <div className="col-6">
                     <MiLista incidencias={incidencias} />
-                </main>
-
-                <aside>
+                </div>
+                <div className="col-6">
                     <Form agregarincidencia={agregarincidencia} />
-                </aside>
+                </div>
             </div>
 
             <Footer />
-        </>
+        </div>
     );
 }
 
