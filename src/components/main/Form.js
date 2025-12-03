@@ -1,5 +1,5 @@
 import React from "react";
-import './Form.css';
+
 
 function Form(props) {
 
@@ -9,98 +9,76 @@ function Form(props) {
 
         props.agregarincidencia(
             form.titulo.value,
-            form.usuario.value,
+            { email: form.email.value }, 
             form.descripcion.value,
             form.categoria.value,
             form.nivel.value,
             form.ubicacion.value
         );
+
+        form.reset(); 
     };
 
-    return (
-        <div className="card p-4 bg-dark text-light">
-            <h2 className="card-title mb-4 text-center">Registrar incidencia</h2>
+    return(
+        <div className="container mt-4" id="fondoform">
+            <div className="card p-4 shadow-sm">
+                <form onSubmit={envioFormulario} className="row g-3">
 
-            <form onSubmit={envioFormulario}>
+                    <div className="col-md-6">
+                        <label htmlFor="titulo" className="form-label">Título</label>
+                        <input type="text" className="form-control" name="titulo" id="titulo" required />
+                    </div>
 
-                <div>
-                    <label className="mb-3 form-label">Título incidencia</label>
-                    <input 
-                        className="mb-3 form-control" 
-                        type="text" 
-                        name="titulo" 
-                        placeholder="Introduce el título" 
-                        required
-                    /><br/><br/>
-                </div>
+                    <div className="col-md-6">
+                        <label htmlFor="email" className="form-label">Email</label>
+                        <input 
+                            type="email" 
+                            className="form-control" 
+                            name="email" 
+                            id="email" 
+                            required 
+                        />
+                    </div>
 
-                <div>
-                    <label className="mb-3 form-label">Usuario</label>
-                    <input 
-                        className="mb-3 form-control" 
-                        type="text" 
-                        name="usuario" 
-                        required
-                    /><br/><br/>
-                </div>
+                    <div className="col-12">
+                        <label htmlFor="descripcion" className="form-label">Descripción</label>
+                        <textarea className="form-control" name="descripcion" id="descripcion" rows="3" required></textarea>
+                    </div>
 
-                <div>
-                    <label className="mb-3 form-label">Descripción</label>
-                    <textarea 
-                        className="mb-3 form-control"
-                        name="descripcion"
-                        placeholder="Describe la incidencia"
-                        required
-                    ></textarea><br/><br/>
-                </div>
+                    <div className="col-md-6">
+                        <label htmlFor="categoria" className="form-label">Categoría</label>
+                        <select className="form-select" name="categoria" id="categoria" required>
+                            <option value="Hardware">Hardware</option>
+                            <option value="Software">Software</option>
+                            <option value="Red">Red</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                    </div>
 
-                <div>
-                    <label className="mb-3 form-label">Categoría</label>
-                    <select 
-                        className="mb-3 form-control" 
-                        name="categoria" 
-                        required
-                    >
-                        <option value="">Seleccionar...</option>
-                        <option value="Hardware">Hardware</option>
-                        <option value="Software">Software</option>
-                        <option value="Red">Red</option>
-                    </select><br/><br/>
-                </div>
+                    <div className="col-md-6">
+                        <label htmlFor="nivel" className="form-label">Nivel de urgencia</label>
+                        <select className="form-select" name="nivel" id="nivel" required>
+                            <option value="Baja">Baja</option>
+                            <option value="Media">Media</option>
+                            <option value="Alta">Alta</option>
+                        </select>
+                    </div>
 
-                <div>
-                    <label className="mb-3 form-label">Nivel de urgencia</label>
-                    <select 
-                        className="mb-3 form-control" 
-                        name="nivel" 
-                        required
-                    >
-                        <option value="">Seleccionar...</option>
-                        <option value="Alta">Alta</option>
-                        <option value="Media">Media</option>
-                        <option value="Baja">Baja</option>
-                    </select><br/><br/>
-                </div>
+                    <div className="col-md-6">
+                        <label htmlFor="ubicacion" className="form-label">Ubicación</label>
+                        <input type="text" className="form-control" name="ubicacion" id="ubicacion" required />
+                    </div>
 
-                <div>
-                    <label className="mb-3 form-label">Ubicación</label>
-                    <input 
-                        className="mb-3 form-control" 
-                        type="text" 
-                        name="ubicacion" 
-                        placeholder="Introduce el aula o lugar"
-                        required
-                    /><br/><br/>
-                </div>
+                    <div className="col-12 text-center mt-3">
+                        <button type="submit" className="btn btn-primary px-4">Agregar incidencia</button>
+                    </div>
 
-                <div className="text-center">
-                    <button className="btn btn-success" type="submit">Registrar</button>
-                </div>
-
-
-            </form>
+                </form>
+            </div>
         </div>
     );
 }
 
 export default Form;
+
+
